@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <title>LoginSystem</title>
+</head>
+
+<div>
+    {% load static %}
+    <img class="login_img" src="{% static 'pbdg.png' %}" alt="logo">
+</div>
+<div>
+    <h1>Welcome to PBDG Handicaps!!</h1>
+</div>
+<body class="login_body">
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Login"/>
+
+</form>
+<p class="login_text">If you have been authorized to use this system and you do not have<br>
+    login credentials please email palmbeachdiscgolf@gmail.com
+</p>
+</body>
+</html>
