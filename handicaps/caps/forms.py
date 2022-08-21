@@ -19,3 +19,7 @@ class NewUserForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class cap_score_Form(forms.Form):
+    Cap_File = forms.FileField(label='Cap_File', validators=[FileExtensionValidator(allowed_extensions=['csv'])])
