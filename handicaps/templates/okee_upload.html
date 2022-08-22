@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="viv_css">
+    {% if messages %}
+{% for message in messages %}
+<div class="alert alert-success" role="alert">
+    <strong>{{message|safe}}</strong>
+</div>
+{% endfor %}
+{% endif %}
+    <h2>Vivitrol Count Analyzer</h2>
+<p>
+    <font size="+1"><strong>Instructions on downloading file</strong><font>
+<ul>
+    <li>Go to the bottom of the 2nd page of the <strong>Public Reports</strong> in Kipu</li>
+    <li>Click the pencil on the <strong>Vivitrol Injections</strong> report</li>
+    <li>Update date range then scroll to the bottom and click <strong>Run Report</strong></li>
+    <li>Click your initials in the top right and click downloads</li>
+    <li><strong>Click download</strong> next to the Vivitrol Injections report</li>
+    <li><a href="{% url 'viv_help' %}">Additional Help</a></li>
+
+
+</ul>
+
+
+</p>
+
+<form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+    <div>
+        {{ form.as_p }}
+        <label for="sheet1" class="btn btn-secondary">Please choose "jdg-vivitrol" csv file</label></div>
+    <p></p>
+    <div>
+        <button type="submit">Analyze File</button>
+    </div>
+</form>
+</div>
+{% endblock %}
