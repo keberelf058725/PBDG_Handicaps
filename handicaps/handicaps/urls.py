@@ -35,4 +35,5 @@ urlpatterns = [
          name='password_reset_complete'),
     path("password_reset", views.password_reset_request, name="password_reset"),
     path('okee_upload/', views.okee_upload_view, name='okee_upload'),
+    path('get_handicap/', views.get_handicap, name='get_handicap'),
 ]

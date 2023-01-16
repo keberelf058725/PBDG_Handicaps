@@ -1,4 +1,4 @@
-import pandas as pandas
+import pandas as pd
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.contrib.auth.models import auth
@@ -15,6 +15,9 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from .models import Player, okee_player_handi
+import datetime as dt
+
 
 
 # Create your views here.
@@ -102,26 +105,46 @@ def okee_upload_view(request, *args, **kwargs):
     if request.method == 'POST':
         form = cap_score_Form(request.POST, request.FILES)
         if form.is_valid():
-            try:
-                # reads csv and instantiates dataframe object
-                sheet1 = request.FILES['Cap_File']
-                cap = pandas.DataFrame(pandas.read_csv(sheet1))
-
-                # function outline
-                """for each player check if player is in database if so run string to list queue 
-                in new round and oldest is queued out calculate new handicap and
-                replace old handicap in model/db run list to string func and save string to db """
-
-
-
-            except Exception:
-                messages.error(request, 'Unknown Columns Detected: Operation Cancelled')
-            else:
-                messages.success(request,
-                                 'Success File has Been Uploaded')
-
-            return render(request, "okee_upload_success.html", {})
+            csv_file = request.FILES['Cap_File']
+            cap = pd.read_csv(csv_file)
+            cap = cap[['name', 'total_score']]
+            for index, row in cap.iterrows():
+                name = row['name']
+                score = row['total_score']
+                if Player.objects.filter(players_name=name).exists():
+                    player = Player.objects.get(players_name=name)
+                    scores_list = player.last_five_scores.split(',')
+                    if len(scores_list) < 5:
+                        scores_list.append(score)
+                    else:
+                        scores_list.pop(0)
+                        scores_list.append(score)
+                    player.last_five_scores = ','.join(str(v) for v in scores_list)
+                    player.save()
+                else:
+                    Player.objects.create(players_name=name, last_five_scores=str(score))
+            return render(request, 'okee_upload_success.html')
     else:
         form = cap_score_Form()
 
     return render(request, "okee_upload.html", {'form': form})
+
+def get_handicap(request):
+    if request.method == 'GET':
+        players = Player.objects.all()
+        data = {'players_name': [], 'score_1': [], 'score_2': [], 'score_3': [], 'score_4': [], 'score_5': []}
+        for player in players:
+            scores = player.last_five_scores.split(',')
+            data['players_name'].append(player.players_name)
+            for i in range(5):
+                if i < len(scores):
+                    data[f'score_{i+1}'].append(int(scores[i]))
+                else:
+                    data[f'score_{i+1}'].append(None)
+        df = pd.DataFrame(data)
+        df["Average"] = df[['score_1', 'score_2', 'score_3', 'score_4', 'score_5']].mean(axis=1, skipna=True)
+        df["Handicap"] = (df["Average"]-54)*.8
+        df["Handicap"] = df["Handicap"].apply(lambda x: round(x))
+        df["Handicap"] = df["Handicap"] * -1
+        df = df[["players_name","Handicap"]]
+        return render(request, 'handicap.html', {'table': df.to_html(index=False)})
