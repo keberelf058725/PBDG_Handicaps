@@ -87,7 +87,7 @@ def password_reset_request(request):
 
 @login_required
 def home_view(request, *args, **kwargs):
-    return render(request, "home.html", {})
+    return render(request, "index.html", {})
 
 
 def sting_to_list(score):
@@ -129,7 +129,7 @@ def okee_upload_view(request, *args, **kwargs):
 
     return render(request, "okee_upload.html", {'form': form})
 
-def get_handicap(request):
+def okee_get_handicap(request):
     if request.method == 'GET':
         players = Player.objects.all()
         data = {'players_name': [], 'score_1': [], 'score_2': [], 'score_3': [], 'score_4': [], 'score_5': []}
@@ -146,5 +146,13 @@ def get_handicap(request):
         df["Handicap"] = (df["Average"]-54)*.8
         df["Handicap"] = df["Handicap"].apply(lambda x: round(x))
         df["Handicap"] = df["Handicap"] * -1
-        df = df[["players_name","Handicap"]]
-        return render(request, 'handicap.html', {'table': df.to_html(index=False)})
+        df = df[["players_name", "Handicap", 'score_1', 'score_2', 'score_3', 'score_4', 'score_5']]
+        df = df.sort_values('players_name')
+        df[['score_1', 'score_2', 'score_3', 'score_4', 'score_5']] = df[['score_1', 'score_2', 'score_3', 'score_4', 'score_5']].fillna(0).astype('int64')
+        df = df.astype('str')
+        df = df.replace(['0'], '')
+        print(df.dtypes)
+        json_records = df.reset_index().to_json(orient='records')
+        data = json.loads(json_records)
+        context = {'d': data}
+        return render(request, 'handicap.html', context)

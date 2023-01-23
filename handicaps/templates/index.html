@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+  <div class="hero_area">
+
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+<div class="img-box" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" >
+  <img src="{% static 'images/okeeheelee_park_2_430.jpg' %}" alt="">
+          </div>
+                  <div class="detail-box">
+                    <h1>
+                      Okeeheelee Park
+                    </h1>
+                    <p>
+                      Weekly Handicaps/Doubles League that meets at Okeeheelee Park Saturday's at 10am
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'okee_get_handicap' %}" class="btn1">
+                        Handicaps
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="img-box" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" >
+  <img src="{% static 'images/west_delray.jpg' %}" alt="">
+          </div>
+                  <div class="detail-box">
+                    <h1>
+                      West Delray Regional Park
+                    </h1>
+                    <p>
+                      Weekly Handicaps/Doubles League that meets Saturday's at 3pm
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'okee_get_handicap' %}" class="btn1">
+                        Handicaps
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="img-box" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" >
+  <img src="{% static 'images/commons.jpg' %}" alt="">
+          </div>
+                  <div class="detail-box">
+                    <h1>
+                      Commons Park
+                    </h1>
+                    <p>
+                      Weekly League that meets Sunday mornings at 8am
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'okee_get_handicap' %}" class="btn1">
+                        Handicaps
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="img-box" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" >
+  <img src="{% static 'images/pga.jpg' %}" alt="">
+          </div>
+                  <div class="detail-box">
+                    <h1>
+                      PGA National Park
+                    </h1>
+                    <p>
+                      Weekly Handicaps League that meets Tuesday's at 6pm
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'okee_get_handicap' %}" class="btn1">
+                        Handicaps
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-10 mx-auto">
+                  <div class="img-box" style="display: block; margin-left: auto; margin-right: auto; width: 300px;" >
+  <img src="{% static 'images/Dreher-Park-North-sign-300x225.jpg' %}" alt="">
+          </div>
+                  <div class="detail-box">
+                    <h1>
+                      Dreher Park
+                    </h1>
+                    <p>
+                      Weekly Handicaps League that runs at 5:30pm on Wednesdays during the summer months only.
+                    </p>
+                    <div class="btn-box">
+                      <a href="{% url 'okee_get_handicap' %}" class="btn1">
+                        Contact Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" data-slide-to="1" ></li>
+          <li data-target="#customCarousel1" data-slide-to="2"></li>
+          <li data-target="#customCarousel1" data-slide-to="3" ></li>
+          <li data-target="#customCarousel1" data-slide-to="4" ></li>
+        </ol>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              Palm Beach Disc Golf will facilitate the continued growth and development of Palm Beach County disc golf courses and oversee club functions. It is our desire to work together with the county, club members, disc golfers throughout southern Florida, and the general public to support and promote both the club and the sport of disc golf as a whole. We will seek to accomplish this through the hosting of weekly leagues, PDGA sanctioned events, club fundraisers, clinics, and other tournaments. In addition to the promotion of our sport and club, Palm Beach Disc Golf will work with the county parks department and local businesses in whatever way possible in order to maintain a positive and viable influence on the community. We embrace the qualities of integrity, good sportsmanship, and friendly competitiveness. We will strive to be the best disc golf club in South Florida.
+            </p>
+            <a href="https://palmbeachdiscgolf.com/">
+              Read More
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.png' %}" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- service section -->
+  <section class="service_section layout_padding">
+    <div class="container-fluid">
+      <div class="heading_container">
+        <h2>
+          2023 Palm Beach Disc Golf Inc. Board of Directors
+        </h2>
+        <p>
+
+        </p>
+      </div>
+
+      <div class="service_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/s1.png' %}" alt="" style="width: 200px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              President
+
+            </h5>
+            <p>
+              Jason Burt
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/david.png' %}" alt="" style="width: 150px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Vice President
+
+            </h5>
+            <p>
+              David Douglas
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/kc.png' %}" alt="" style="width: 150px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Treasurer
+
+            </h5>
+            <p>
+              Kevin Caldon
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/dan rig.png' %}" alt="" style="width: 200px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              League Director
+            </h5>
+            <p>
+              Daniel Rigg
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/ivan.png' %}" alt="" style="width: 200px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Park Liaison / Grounds Keeper
+            </h5>
+            <p>
+              Ivan Berroa
+            </p>
+          </div>
+        </div>
+      </div>
+    <div class="service_container">
+    <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/matt.png' %}" alt="" style="width: 200px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Program Director
+            </h5>
+            <p>
+              Matthew Johnson
+            </p>
+          </div>
+        </div>
+    <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/mason.png' %}" alt="" style="width: 200px;">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Scribe
+            </h5>
+            <p>
+              Mason Deal
+            </p>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!-- end service section -->
+
+
+
+
+  <!-- client section -->
+  <section class="client_section layout_padding">
+    <div id="customCarousel2" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic 3.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic7.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic6.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic2.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div class="box" style="display: flex;
+    justify-content: center;
+    align-items: center;">
+                  <div class="detail-box">
+                    <img src="{% static 'images/pic4.png' %}" alt="" style="width: 400px; margin-left: 30px; border-radius: 40px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="carousel-indicators">
+        <li data-target="#customCarousel2" data-slide-to="0" class="active"></li>
+        <li data-target="#customCarousel2" data-slide-to="1"></li>
+        <li data-target="#customCarousel2" data-slide-to="2"></li>
+        <li data-target="#customCarousel2" data-slide-to="3"></li>
+        <li data-target="#customCarousel2" data-slide-to="4"></li>
+        <li data-target="#customCarousel2" data-slide-to="5"></li>
+      </ol>
+    </div>
+  </section>
+  <!-- end client section -->
+
+  <!-- news section -->
+
+  <section class="news_section ">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Latest News
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/news-1.jpg' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Upcoming Tournaments and Events
+              </h5>
+              <p>
+                Palm Beach Classic - Sat-Sun, February 25-26, 2023
+              </p>
+              <a href="https://www.discgolfscene.com/tournaments/Palm_Beach_Classic_2023" target="_blank">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'web.jpg' %}s/news-2.jpg" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Looking to become a Member?
+              </h5>
+              <p>
+                Becoming a member gets you access to out tag system, our end of the year party and more! We also have memberships that allow you to advertise on our page and club events!
+              </p>
+              <a href="https://palmbeachdiscgolf.com/club-membership" target="_blank">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/pbdg-color-trans.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Check our Facebook!
+              </h5>
+              <p>
+                Staying on top of leagues and other club events is easy with our facebook group. Come join the community!
+              </p>
+              <a href="https://www.facebook.com/groups/135371636571766" target="_blank">
+                <span>
+                  Read More
+                </span>
+                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end news section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+                <div class="col-md-6 col-lg-3 ml-auto">
+          <div class="info_contact">
+            <h4>
+              Contact
+            </h4>
+            <div class="contact_link_box">
+
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Palm Beach Disc Golf Inc. is a non-profit 501c-3 certified group based out of West Palm Beach, Fl.
+                </span>
+
+
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  palmbeachdiscgolf@gmail.com
+                </span>
+
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-0">
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+{% endblock %}
+</html>
