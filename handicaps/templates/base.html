@@ -55,6 +55,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                 </li>
+                {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false"> Leagues Uploads </a>
@@ -65,18 +66,25 @@
                                 </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">Dreher Caps</a>
+                            <a class="dropdown-item" aria-current="page" href="{% url 'dreher_upload' %}">Dreher Caps</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">Commons Caps</a>
+                            <a class="dropdown-item" aria-current="page" href="{% url 'commons_upload' %}">Commons Caps</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="dropdown-item" aria-current="page" href="#">PGA Caps</a>
+                            <a class="dropdown-item" aria-current="page" href="{% url 'pga_upload' %}">PGA Caps</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-item" aria-current="page" href="{% url 'delray_upload' %}">Delray Caps</a>
                         </li>
                     </ul>
+                </li>
+                {% endif %}
         </div>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false"> Hi, {{user.first_name}} </a>
@@ -84,16 +92,19 @@
                         <li>
                             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                         </li>
-                        {% if user.is_superuser %}
+{% if user.is_superuser %}
                         <li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a></li>
-                        {% endif %}
-                        {% if user.is_superuser %}
-                        <li><a class="dropdown-item" href="{% url 'register' %}">New User</a></li>
-                        {% endif %}
+                                                <li><a class="dropdown-item" href="{% url 'register' %}">New User</a></li>
                     </ul>
+                </li>
+                {% endif %}
+                {% else %}
+                                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
                 </li>
             </ul>
         </div>
+        {% endif %}
     </div>
 </nav>
 <body>

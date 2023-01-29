@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="viv_css">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+        <strong>{{message|safe}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <h2>Upload Files</h2>
+    <form action="" method="post" enctype="multipart/form-data"> {% csrf_token %}
+        <div>
+            {{ form.as_p }}
+            <label for="sheet1" class="btn btn-secondary"><label>
+                <button type="submit">Upload</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <div class="container">
+  <h2 class="text-center"><u>Delray Handicap Table</u></h2><br>
+  <table class="table table-primary table-striped">
+    <caption>- Handicaps = Average of last five rounds subtracted by 54 multiplied by .8 then rounded and multiplied by -1 to get the inverse number</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Handicap</th>
+        <th>Score 1</th>
+        <th>Score 2</th>
+        <th>Score 3</th>
+        <th>Score 4</th>
+        <th>Score 5</th>
+      </tr>
+    </thead>
+    <tbody>
+    <!-- jinja2 Technique -->
+    {% if d %}
+    {% for i in d %}
+      <tr>
+        <td>{{i.players_name}}</td>
+        <td>{{i.Handicap}}</td>
+        <td>{{i.score_1}}</td>
+        <td>{{i.score_2}}</td>
+        <td>{{i.score_3}}</td>
+        <td>{{i.score_4}}</td>
+        <td>{{i.score_5}}</td>
+      </tr>
+    {% endfor %}
+    {% endif %}
+    </tbody>
+  </table>
+</div>
+    </table>
+
+{% endblock %}

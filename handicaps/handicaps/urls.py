@@ -36,4 +36,12 @@ urlpatterns = [
     path("password_reset", views.password_reset_request, name="password_reset"),
     path('okee_upload/', views.okee_upload_view, name='okee_upload'),
     path('okee_get_handicap/', views.okee_get_handicap, name='okee_get_handicap'),
+    path('commons_upload/', views.commons_upload_view, name='commons_upload'),
+    path('commons_get_handicap/', views.commons_get_handicap, name='commons_get_handicap'),
+    path('delray_upload/', views.delray_upload_view, name='delray_upload'),
+    path('delray_get_handicap/', views.delray_get_handicap, name='delray_get_handicap'),
+    path('pga_upload/', views.pga_upload_view, name='pga_upload'),
+    path('pga_get_handicap/', views.pga_get_handicap, name='pga_get_handicap'),
+    path('dreher_upload/', views.dreher_upload_view, name='dreher_upload'),
+    path('dreher_get_handicap/', views.dreher_get_handicap, name='dreher_get_handicap'),
 ]
